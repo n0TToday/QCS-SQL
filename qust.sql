@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50728
 File Encoding         : 65001
 
-Date: 2020-03-28 19:35:19
+Date: 2020-04-01 15:23:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `cardinfo`;
 CREATE TABLE `cardinfo` (
   `cardid` varchar(255) NOT NULL,
   `cardstats` varchar(255) DEFAULT NULL,
-  `cardbalance` int(255) DEFAULT NULL,
+  `cardbalance` varchar(255) DEFAULT NULL,
   `cardusername` varchar(255) DEFAULT NULL,
   `carduserid` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`cardid`)
@@ -33,11 +33,12 @@ CREATE TABLE `cardinfo` (
 -- ----------------------------
 DROP TABLE IF EXISTS `loginfo`;
 CREATE TABLE `loginfo` (
-  `logdate` datetime(6) NOT NULL,
-  `logwho` varchar(255) NOT NULL,
-  `logdo` varchar(255) NOT NULL,
-  `logthing` varchar(255) NOT NULL,
+  `logdate` varchar(255) NOT NULL,
+  `loguserid` varchar(255) DEFAULT NULL,
+  `logmethod` varchar(255) DEFAULT NULL,
+  `logthing` varchar(255) DEFAULT NULL,
   `logdata` varchar(255) DEFAULT NULL,
+  `logresult` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`logdate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
